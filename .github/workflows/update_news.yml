@@ -2,8 +2,8 @@ name: Daily Shiga School News
 
 on:
   schedule:
-    # 毎朝 日本時間 6:30 (UTC 21:30) に自動実行
-    - cron: '30 21 * * *'
+    # 毎朝 日本時間 6:47 (UTC 21:47) に自動実行
+    - cron: '47 21 * * *'
   workflow_dispatch:
   push:
     branches:
@@ -49,6 +49,9 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
+          
+      - name: 反映待機
+        run: sleep 10
 
       - name: GitHub Pages へデプロイ
         id: deployment
